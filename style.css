@@ -1,0 +1,1538 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --dark: #0a0a0a;
+  --gray: #6b7280;
+  --light: #f9fafb;
+}
+html{
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+
+/* ===== DARK NAVBAR ===== */
+.navbar.dark {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 80px;
+
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: #fff;
+}
+
+/* ===== NAV LINKS ===== */
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #fff;
+}
+
+/* ===== UNDERLINE ===== */
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width 0.35s ease;
+}
+
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== MEGA MENU ===== */
+.nav-item {
+  position: relative;
+}
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+
+  padding: 40px;
+  min-width: 620px;
+
+  background: rgba(15,15,15,0.95);
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+
+  border-radius: 18px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+
+/* Show Mega Menu */
+.nav-item:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mega Menu Columns */
+.mega-column h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mega-column a {
+  display: block;
+  text-decoration: none;
+  color: #e5e7eb;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.mega-column a:hover {
+  color: #fff;
+}
+
+/* ===== NAV ACTIONS ===== */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.icon {
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* ===== CART BADGE ===== */
+.cart {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+
+  width: 18px;
+  height: 18px;
+
+  background: #fff;
+  color: #000;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 16px 30px;
+  }
+
+  .navbar nav {
+    display: none;
+  }
+}
+
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  padding: 140px 80px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text {
+  animation: slideFade 1.2s ease forwards;
+}
+
+.hero h1 {
+  font-size: 64px;
+  line-height: 1.1;
+}
+
+.hero span {
+  color: var(--gray);
+}
+
+.hero p {
+  margin: 25px 0;
+  color: var(--gray);
+  max-width: 420px;
+}
+
+/* Shoe Gallery */
+.shoe-gallery {
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.shoe-gallery h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.shoe {
+  background: #fff;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  transition: all 0.5s ease;
+}
+
+.shoe img {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.shoe:hover {
+  transform: translateY(-12px);
+}
+
+.shoe:hover img {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+/* Sale Section */
+
+/* Auto Slider Section */
+.auto-slider {
+  padding: 100px 80px;
+  background: #f4f4f5;
+  text-align: center;
+}
+
+.auto-slider h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+/* Slider Container */
+.slider-wrapper {
+  overflow: hidden;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Track */
+.slider-track {
+  display: flex;
+  gap: 30px;
+  width: calc(300px * 6);
+  animation: scroll 18s linear infinite;
+}
+
+/* Pause on Hover */
+.slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* Sale Card */
+.sale-card {
+  min-width: 300px;
+  background: #fff;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+  transition: 0.4s;
+}
+
+.sale-card img {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.sale-card h3 {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.sale-card p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 6px 0;
+}
+
+.sale-card span {
+  font-weight: 600;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Hover Effects */
+.sale-card:hover {
+  transform: translateY(-12px);
+}
+
+.sale-card:hover img {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 3 - 90px));
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .slider-wrapper {
+    max-width: 360px;
+  }
+
+  .slider-track {
+    width: calc(300px * 6);
+  }
+}
+
+
+/* ================= COLLECTION SLIDERS ================= */
+.collection {
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.collection h2 {
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+/* Reuse slider animation */
+.collection .slider-track {
+  display: flex;
+  gap: 30px;
+  width: calc(300px * 6);
+  animation: scroll 20s linear infinite;
+}
+
+.collection .slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* Base Card */
+.collection-card {
+  min-width: 300px;
+  padding: 32px;
+  border-radius: 26px;
+  transition: all 0.45s ease;
+}
+
+.collection-card img {
+  width: 100%;
+  transition: transform 0.45s ease;
+}
+
+.collection-card h3 {
+  margin-top: 18px;
+  font-size: 18px;
+}
+
+.collection-card span {
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* ================= MEN (GRAY THEME) ================= */
+.men-slider {
+  background: #e5e7eb; /* soft gray section */
+}
+
+.men-slider h2 {
+  color: #111;
+}
+
+.men-slider .collection-card {
+  background: #f3f4f6;
+  box-shadow: 0 25px 45px rgba(0,0,0,0.12);
+}
+
+.men-slider .collection-card h3 {
+  color: #111;
+}
+
+.men-slider .collection-card span {
+  color: #374151;
+}
+
+/* ================= WOMEN (BLACK THEME) ================= */
+.women-slider {
+  background: #0a0a0a;
+}
+
+.women-slider h2 {
+  color: #fff;
+}
+
+.women-slider .collection-card {
+  background: #111;
+  box-shadow: 0 35px 70px rgba(0,0,0,0.7);
+}
+
+.women-slider .collection-card h3,
+.women-slider .collection-card span {
+  color: #fff;
+}
+
+/* ================= HOVER EFFECT ================= */
+.collection-card:hover {
+  transform: translateY(-14px);
+}
+
+.collection-card:hover img {
+  transform: rotate(-7deg) scale(1.1);
+}
+
+
+
+/* ================= FEATURED PRODUCTS ================= */
+/* ================= ALTERNATING FEATURED PRODUCTS ================= */
+
+.featured-alt {
+  padding: 120px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  align-items: center; /* CENTER each product row */
+}
+
+/* Product Row */
+.alt-product {
+  width: 100%;
+  max-width: 1100px; /* KEY: keeps product centered */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Reverse layout */
+.alt-product.reverse {
+  direction: rtl;
+}
+
+.alt-product.reverse > * {
+  direction: ltr;
+}
+
+/* Text */
+.alt-text h2 {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.alt-text p {
+  color: var(--gray);
+  max-width: 420px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.alt-text span {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/* Image */
+.alt-image {
+  display: flex;
+  justify-content: center;
+}
+
+.alt-image img {
+  width: 100%;
+  max-width: 420px;
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+
+  .featured-alt {
+    padding: 80px 24px;
+    gap: 80px;
+  }
+
+  .alt-product,
+  .alt-product.reverse {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .alt-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .alt-image img {
+    max-width: 300px;
+  }
+}
+
+/* ================= SIZE SELECTOR (CSS ONLY) ================= */
+
+.size-selector {
+  margin-bottom: 20px;
+}
+
+.size-selector p {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+
+/* Hide radio buttons */
+.size-selector input {
+  display: none;
+}
+
+/* Size buttons container */
+.sizes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Size button */
+.sizes label {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.sizes label:hover {
+  background: #f3f4f6;
+}
+
+/* Selected state */
+.size-selector input:checked + label {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .sizes {
+    justify-content: center;
+  }
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* ================= DESIGNED WITH PURPOSE (BLACK CARDS) ================= */
+
+/* ================= DARK BAND BACKGROUND ================= */
+
+.purpose {
+  padding: 140px 80px;
+  background: linear-gradient(
+    180deg,
+    #0a0a0a 0%,
+    #111111 100%
+  );
+  position: relative;
+}
+
+/* Optional soft top & bottom spacing illusion */
+.purpose::before,
+.purpose::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+}
+
+.purpose::before {
+  top: -80px;
+}
+
+.purpose::after {
+  bottom: -80px;
+}
+
+
+.purpose-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+.purpose-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.purpose-header h2 {
+  color: #ffffff;
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.purpose-header p {
+  max-width: 560px;
+  margin: auto;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* Flow layout */
+.purpose-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+/* BLACK CARD */
+.purpose-step {
+  background: #38383887;
+  color: #ffffff;
+  padding: 50px 40px;
+  border-radius: 28px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Scale interaction */
+.purpose-step:hover {
+  transform: scale(1.05);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+}
+
+/* Step number */
+.step-number {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #9ca3af;
+}
+
+/* Title */
+.purpose-step h3 {
+  font-size: 20px;
+  margin: 14px 0;
+}
+
+/* Text */
+.purpose-step p {
+  color: #d1d5db;
+  line-height: 1.6;
+  max-width: 260px;
+  margin: auto;
+}
+
+/* Connecting line */
+.purpose-line {
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+
+  .purpose {
+    padding: 80px 24px;
+  }
+
+  .purpose-header h2 {
+    font-size: 34px;
+  }
+
+  .purpose-flow {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .purpose-line {
+    display: none;
+  }
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* ================= CUSTOMER REVIEWS ================= */
+
+.reviews {
+  padding: 120px 80px;
+  background: #ffffff;
+}
+
+.reviews-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+.reviews-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.reviews-header h2 {
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+.reviews-header p {
+  color: var(--gray);
+  max-width: 520px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* Card */
+.review-card {
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 28px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+  transition: transform 0.4s ease;
+}
+
+/* Hover */
+.review-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Stars */
+.stars {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  color: #facc15; /* gold */
+}
+
+/* Review text */
+.review-text {
+  line-height: 1.6;
+  color: #e5e7eb;
+  margin-bottom: 18px;
+}
+
+/* User */
+.review-user {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  .reviews {
+    padding: 80px 24px;
+  }
+
+  .reviews-header h2 {
+    font-size: 34px;
+  }
+}
+
+/* ================= EXPANDABLE REVIEWS ================= */
+
+.review-card {
+  cursor: pointer;
+}
+
+/* Remove default arrow */
+.review-card summary {
+  list-style: none;
+}
+
+.review-card summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Preview text */
+.review-preview {
+  color: #e5e7eb;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Full review (hidden by default) */
+.review-full {
+  color: #d1d5db;
+  line-height: 1.6;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Smooth open animation */
+.review-card[open] {
+  transform: scale(1.03);
+}
+
+/* Hint text */
+.review-card summary::after {
+  content: "Read more";
+  display: block;
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 12px;
+}
+
+.review-card[open] summary::after {
+  content: "Show less";
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ================= HIGH-END CONTACT ================= */
+
+.contact-pro {
+  padding: 140px 80px;
+  background: #000000e7;
+}
+
+.contact-wrap {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+/* Left content */
+.contact-text h2 {
+  font-size: 48px;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.contact-text p {
+  color: #d1d5db;
+  max-width: 420px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.contact-meta div {
+  margin-bottom: 22px;
+}
+
+.contact-meta span {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.contact-meta p {
+  color: #ffffff;
+  margin-top: 6px;
+}
+
+/* White Form Card */
+.contact-card {
+  background: #ffffff;
+  padding: 55px;
+  border-radius: 36px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Floating Fields */
+.field {
+  position: relative;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d1d5db;
+  padding: 14px 6px;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+}
+
+.field label {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 13px;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Floating effect */
+.field input:focus + label,
+.field input:valid + label,
+.field textarea:focus + label,
+.field textarea:valid + label {
+  top: -8px;
+  font-size: 11px;
+  color: #111111;
+}
+
+/* Button spacing */
+.contact-card button {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .contact-pro {
+    padding: 100px 24px;
+  }
+
+  .contact-wrap {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .contact-text h2 {
+    font-size: 38px;
+  }
+
+  .contact-card {
+    padding: 40px;
+  }
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* ================= SNEAKER BRAND FOOTER ================= */
+
+.footer-pro {
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 100px 80px 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 80px;
+}
+
+/* Brand */
+.footer-brand h3 {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.footer-brand span {
+  color: #ffffff;
+}
+
+.footer-brand p {
+  color: #9ca3af;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+/* Links */
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.footer-links h4 {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 18px;
+}
+
+.footer-links a {
+  display: block;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .footer-pro {
+    padding: 80px 24px 30px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/* Buttons */
+.btn {
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: none;
+  background: var(--dark);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.light {
+  background: #fff;
+  color: var(--dark);
+}
+
+/* Hero Image Animation */
+.hero-image img {
+  width: 420px;
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Highlights */
+.highlights {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.highlight {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--gray);
+}
+
+/* Premium Section */
+.premium {
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.premium h2 {
+  font-size: 42px;
+}
+
+.premium-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Glass Cards */
+.glass-card {
+  padding: 40px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  transition: all 0.5s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-12px) scale(1.03);
+}
+
+/* CTA */
+.cta {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff, #f1f1f1);
+}
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  color: var(--gray);
+}
+
+/* Animations */
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero-image img {
+    width: 280px;
+  }
+
+  .navbar {
+    padding: 20px 30px;
+  }
+}
+
+/* ================= MOBILE SWIPE SLIDER (SCROLL SNAP) ================= */
+@media (max-width: 900px) {
+
+  /* Disable auto animation on mobile */
+  .slider-track {
+    animation: none !important;
+  }
+
+  /* Enable horizontal swipe */
+  .slider-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Track becomes scroll container */
+  .slider-track {
+    width: auto;
+    display: flex;
+    gap: 20px;
+  }
+
+  /* Each card snaps */
+  .sale-card,
+  .collection-card {
+    scroll-snap-align: center;
+    min-width: 85%;
+    flex-shrink: 0;
+  }
+
+  /* Hide scrollbar (clean UI) */
+  .slider-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider-wrapper {
+    scrollbar-width: none;
+  }
+}
+
+
+/* ================= TABLET RESPONSIVENESS (768px–1024px) ================= */
+@media (max-width: 1024px) {
+
+  /* Layout spacing */
+  .hero,
+  .shoe-gallery,
+  .auto-slider,
+  .collection,
+  .premium {
+    padding: 80px 50px;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-image img {
+    width: 340px;
+  }
+
+  /* Shoe grid */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sliders → show 2 cards */
+  .slider-wrapper {
+    max-width: 720px;
+  }
+
+  .sale-card,
+  .collection-card {
+    min-width: 320px;
+  }
+
+  /* Navbar spacing */
+  .navbar.dark {
+    padding: 18px 50px;
+  }
+
+  /* Mega menu fix for tablets */
+  .mega-menu {
+    pointer-events: none;
+  }
+}
+
+/* ================= MOBILE (≤768px) ================= */
+@media (max-width: 768px) {
+
+  /* Stack hero */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    margin: 20px auto;
+  }
+
+  .hero-image img {
+    width: 260px;
+    margin-top: 40px;
+  }
+
+  /* Shoe gallery */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sliders → single card swipe */
+  .sale-card,
+  .collection-card {
+    min-width: 90%;
+  }
+
+  /* Section headings */
+  h2 {
+    font-size: 34px !important;
+  }
+
+  /* Navbar */
+  .navbar nav {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 18px;
+  }
+}
+
+/* ================= LARGE SCREENS (≥1400px) ================= */
+@media (min-width: 1400px) {
+
+  .hero {
+    max-width: 1400px;
+    margin: auto;
+  }
+
+  .slider-wrapper {
+    max-width: 1200px;
+  }
+}
+
+
+/* ================= FIX MEN & WOMEN SLIDERS RESPONSIVE ================= */
+
+/* ---------- DESKTOP (default ≥1025px) ---------- */
+/* Auto slider already works – no change */
+
+
+/* ---------- TABLET (768px – 1024px) ---------- */
+@media (max-width: 1024px) {
+
+  /* Stop auto animation */
+  .collection .slider-track {
+    animation: none;
+  }
+
+  /* Enable horizontal scroll */
+  .collection .slider-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Track becomes flexible */
+  .collection .slider-track {
+    width: max-content;
+    gap: 24px;
+  }
+
+  /* 2 cards visible */
+  .collection-card {
+    min-width: 48%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  /* Hide scrollbar */
+  .collection .slider-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .collection .slider-wrapper {
+    scrollbar-width: none;
+  }
+}
+
+
+/* ---------- MOBILE (≤768px) ---------- */
+@media (max-width: 768px) {
+
+  /* One card swipe */
+  .collection-card {
+    min-width: 90%;
+    scroll-snap-align: center;
+  }
+
+  /* Better spacing */
+  .collection {
+    padding: 80px 24px;
+  }
+
+  .collection h2 {
+    font-size: 34px;
+  }
+}
+
+
+/* ================= IMAGE SIZE FIX (ALL SLIDERS) ================= */
+
+/* Base image control */
+.sale-card img,
+.collection-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 1024px) {
+  .sale-card img,
+  .collection-card img {
+    height: 150px;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  .sale-card img,
+  .collection-card img {
+    height: 130px;
+  }
+}
+
+/* nike Spacing below images */
+.sale-card img,
+.collection-card img {
+  margin-bottom: 10px;
+}
+
+
+/* ================= FIX MEN & WOMEN RESPONSIVENESS (FINAL) ================= */
+
+/* ===== DESKTOP (>=1025px) ===== */
+/* Auto slider works – no change */
+
+
+/* ===== TABLET & MOBILE (<=1024px) ===== */
+@media (max-width: 1024px) {
+
+  /* Stop animation like Trending */
+  .men-slider .slider-track,
+  .women-slider .slider-track {
+    animation: none !important;
+  }
+
+  /* Enable scroll snap */
+  .men-slider .slider-wrapper,
+  .women-slider .slider-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Track becomes flexible */
+  .men-slider .slider-track,
+  .women-slider .slider-track {
+    width: auto;
+    display: flex;
+    gap: 20px;
+  }
+
+  /* Cards behave like sale-card */
+  .men-slider .collection-card,
+  .women-slider .collection-card {
+    min-width: 85%;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+
+  /* Hide scrollbar */
+  .men-slider .slider-wrapper::-webkit-scrollbar,
+  .women-slider .slider-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .men-slider .slider-wrapper,
+  .women-slider .slider-wrapper {
+    scrollbar-width: none;
+  }
+}
